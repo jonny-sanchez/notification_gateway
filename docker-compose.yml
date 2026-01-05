@@ -1,0 +1,12 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: notificaciones
+    tty: true
+    stdin_open: true
+    ports:
+      - "2000:2000"
+    env_file:
+      - .env

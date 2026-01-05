@@ -1,0 +1,26 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+  schemas  = ["log", "public"]
+}
+
+model SendLog {
+  id_send_log_mail Int       @id @default(autoincrement())
+  emisor           String    @db.VarChar(500)
+  receptor         String    @db.VarChar(500)
+  asunto           String    @db.VarChar(500)
+  template         String    @db.VarChar(500)
+  data_context     Json?
+  userCreatedAt    BigInt?
+  userUpdatedAt    BigInt?
+  createdAt        DateTime? @db.Timestamptz(6)
+  updatedAt        DateTime? @updatedAt @db.Timestamptz(6)
+
+  @@map("send_log_mail")
+  @@schema("log")
+}
