@@ -13,7 +13,7 @@ import { join } from 'path';
     //configurar archivos staticos
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'client'),
-      serveRoot: '/client'
+      serveRoot: '/notificaciones/client'
     }),
     //configuracion para el .env
     ConfigModule.forRoot({
