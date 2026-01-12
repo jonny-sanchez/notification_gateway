@@ -21,7 +21,7 @@ export class MailService implements OnModuleInit {
     async emailService(body:MailSendDto, transaction:PrismaCore) {
       //definir variables de entorno a utilizar
       const color_primary:string = process?.env[`MAIL_${body.emisor}_COLOR_PRIMARY`] ?? ""
-      const logo:string = `${process.env.BASE_URL}${process?.env[`MAIL_${body.emisor}_LOGO`] ?? ""}`
+      const logo:string = `${process?.env[`MAIL_${body.emisor}_LOGO`] ?? ""}`
       const emisor:string =  `${process.env[`MAIL_${body.emisor}_FROM_ADDRESS`] ?? ""}`
       const name_emisor:string = process.env[`MAIL_${body.emisor}_FROM_NAME`] ?? ""
       //forma contexto del template del email 
