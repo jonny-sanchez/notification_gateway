@@ -16,7 +16,7 @@ export class RequestService {
     ) {
         try {
             const result = isWithRollBack
-                ? await ConnectionsInstance[connection].$transaction(callback)
+                ? await ConnectionsInstance[connection].$transaction(callback, { timeout: 30_000 })
                 : await callback(undefined as any);
             return { message: messageSuccess, statusCode, data: result };
         } catch (error) {
